@@ -13,16 +13,21 @@ int main(){ // Main function
     // Prompt user to enter the withdraw amount
     printf("Enter the amount you want to withdraw:\n");
     scanf("%d", &withdraw);
+    
+    int charge = withdraw * 2/100;
+    int Total_withdraw = charge + withdraw;
 
     // Prompt user to enter the pin for the account
     printf("Enter your pin to continue:\n");
     scanf("%d", &pin);
 
     if (pin == 1526){
-        if(balance >= withdraw){
-            balance -= withdraw;
-            printf("You have successfully withdrawn:%d\n", withdraw);
-            printf("New balance:%d", balance);
+      
+        if(balance >= Total_withdraw){
+            balance -= Total_withdraw;
+            printf("You have successfully withdrawn %d", withdraw);
+            printf(" at a charge of %d\n", charge);
+            printf("Your new balance is %d", balance);
             
         }else{
             printf("You have insufficient balance!");
